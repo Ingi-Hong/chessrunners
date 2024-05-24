@@ -3,9 +3,6 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { OpeningResponse } from "@/database/queries";
 import { useFilterStore } from "@/global-state";
 import { useCallback, useEffect, useState } from "react";
-const isChecked = (list: string[], value: string): boolean => {
-  return list.includes(value);
-};
 
 const PGN = ({
   pgn,
@@ -104,7 +101,7 @@ export default function OpeningCard({ opening }: OpeningCardProps) {
     }
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e: any) => {
     const id = e?.target?.id;
     if (id.startsWith("1.")) {
       if (selPgns.includes(id)) {
@@ -128,7 +125,7 @@ export default function OpeningCard({ opening }: OpeningCardProps) {
           <Checkbox
             id={opening.opening}
             checked={complete}
-            onClick={(e) => handleSelectAll(e)}
+            onClick={handleSelectAll}
           />
           <label className="cursor-pointer" id={opening.opening}>
             {opening.opening}

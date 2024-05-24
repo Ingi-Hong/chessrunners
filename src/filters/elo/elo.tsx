@@ -38,8 +38,8 @@ export default function EloSlider() {
   };
 
   const handleSave = () => {
-    setMaxElo(rawMax);
-    setMinElo(rawMin);
+    setMaxElo(rawMax as Number | undefined);
+    setMinElo(rawMin as Number | undefined);
     setValid(false);
   };
 

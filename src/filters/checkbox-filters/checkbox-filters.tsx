@@ -57,7 +57,7 @@ export function TimeOptions({ className }: OptionProps) {
   const selTimes = useFilterStore((state) => state.selTimes);
   const setSelTimes = useFilterStore((state) => state.setSelTimes);
 
-  const { data, isPending, error } = useQuery({
+  const { data } = useQuery({
     queryKey: ["time-control"],
     queryFn: getTimeControls,
     refetchOnMount: false,

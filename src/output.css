@@ -622,6 +622,10 @@ body {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .fixed {
   position: fixed;
 }
@@ -652,6 +656,14 @@ body {
 
 .top-8 {
   top: 2rem;
+}
+
+.right-3 {
+  right: 0.75rem;
+}
+
+.top-3 {
+  top: 0.75rem;
 }
 
 .z-50 {
@@ -689,6 +701,10 @@ body {
 
 .ml-14 {
   margin-left: 3.5rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .box-border {
@@ -775,6 +791,18 @@ body {
   height: 100svh;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.h-4\/5 {
+  height: 80%;
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -812,6 +840,22 @@ body {
   width: 7rem;
 }
 
+.w-6 {
+  width: 1.5rem;
+}
+
+.w-\[300px\] {
+  width: 300px;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.w-4\/5 {
+  width: 80%;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -826,6 +870,11 @@ body {
 
 .-translate-y-\[1px\] {
   --tw-translate-y: -1px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-x-1\/2 {
+  --tw-translate-x: 50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1042,6 +1091,10 @@ body {
   border-width: 2px;
 }
 
+.border-4 {
+  border-width: 4px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1115,6 +1168,10 @@ body {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-gray-500\/50 {
+  background-color: rgb(107 114 128 / 0.5);
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1129,6 +1186,14 @@ body {
 
 .p-\[10px\] {
   padding: 10px;
+}
+
+.p-10 {
+  padding: 2.5rem;
+}
+
+.p-0 {
+  padding: 0px;
 }
 
 .px-3 {
@@ -1175,6 +1240,10 @@ body {
 
 .pt-0 {
   padding-top: 0px;
+}
+
+.pt-12 {
+  padding-top: 3rem;
 }
 
 .text-left {
@@ -1334,6 +1403,10 @@ body {
   transition-duration: 150ms;
 }
 
+.duration-300 {
+  transition-duration: 300ms;
+}
+
 @keyframes enter {
   from {
     opacity: var(--tw-enter-opacity, 1);
@@ -1346,6 +1419,10 @@ body {
     opacity: var(--tw-exit-opacity, 1);
     transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
   }
+}
+
+.duration-300 {
+  animation-duration: 300ms;
 }
 
 .hover\:translate-x-boxShadowX:hover {
@@ -1430,8 +1507,40 @@ body {
   opacity: 1;
 }
 
+.data-\[visible\=true\]\:visible[data-visible=true] {
+  visibility: visible;
+}
+
+.data-\[visible\=false\]\:invisible[data-visible=false] {
+  visibility: hidden;
+}
+
 .data-\[state\=selected\]\:bg-muted[data-state=selected] {
   background-color: hsl(var(--muted));
+}
+
+.data-\[visible\=false\]\:opacity-0[data-visible=false] {
+  opacity: 0;
+}
+
+.data-\[visible\=true\]\:opacity-100[data-visible=true] {
+  opacity: 1;
+}
+
+.group[data-visible=true] .group-data-\[visible\=true\]\:visible {
+  visibility: visible;
+}
+
+.group[data-visible=false] .group-data-\[visible\=false\]\:invisible {
+  visibility: hidden;
+}
+
+.group[data-visible=false] .group-data-\[visible\=false\]\:opacity-0 {
+  opacity: 0;
+}
+
+.group[data-visible=true] .group-data-\[visible\=true\]\:opacity-100 {
+  opacity: 1;
 }
 
 @media (min-width: 768px) {

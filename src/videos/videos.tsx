@@ -3,6 +3,7 @@ import { useFilterStore } from "@/global-state";
 import { useQuery } from "@tanstack/react-query";
 import { columns } from "./column-definitions";
 import { DataTable } from "./data-table";
+
 export default function Videos() {
   const colors = useFilterStore((state) => state.selColor);
   const creators = useFilterStore((state) => state.selCreator);
@@ -14,18 +15,18 @@ export default function Videos() {
   const filters: FilterParams = {
     colors,
     creators,
-    eloRange: { min: eloMin, max: eloMax },
+    eloRange: { min: eloMin as Number, max: eloMax as Number },
     timeControl,
     openings: selPgns,
   };
 
-  const { isPending, isError, data, error, isFetching } = useQuery({
+  const { data } = useQuery({
     queryKey: ["videos", filters],
     queryFn: () => getVideos(filters),
   });
 
   return (
-    <div className="mx-auto box-border overflow-auto h-[calc(100%-96px)] w-full">
+    <div className="mx-auto box-border overflow-auto h-[calc(100%-96px)] w-full bg-bg">
       <DataTable columns={columns} data={data?.data || []} />
     </div>
   );

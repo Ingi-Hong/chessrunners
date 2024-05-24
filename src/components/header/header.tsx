@@ -17,7 +17,7 @@ export default function Header() {
               <a>Donate</a>
             </li>
             <li>
-              <a>Github</a>
+              <a href="https://github.com/Ingi-Hong/chesstube.app">Github</a>
             </li>
           </ul>
         </nav>

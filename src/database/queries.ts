@@ -10,7 +10,7 @@ export type FilterParams = {
   creators: string[];
   colors: Array<"Black" | "White">;
   eloRange: eloRange;
-  timeControl: TimeControl[];
+  timeControl: string[];
   openings: string[];
 };
 
@@ -48,8 +48,8 @@ export const getVideos = async (
     andFilters.push(["lte", "elo", filters.eloRange.max]);
   }
 
-  if (filters.timeControls) {
-    andFilters.push(["in", "time_control", filters.timeControls]);
+  if (filters.timeControl.length > 0) {
+    andFilters.push(["in", "time_control", filters.timeControl]);
   }
 
   if (filters.openings.length > 0) {
@@ -58,6 +58,7 @@ export const getVideos = async (
 
   return andFilters
     .reduce((acc, [filter, ...args]) => {
+      // @ts-ignore
       return acc[filter](...args);
     }, supabase.from("videos").select())
     .throwOnError();
