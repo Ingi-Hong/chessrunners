@@ -36,20 +36,20 @@ export default function OpeningFilters({
 
   return (
     <Modal active={expand} setActive={setExpand}>
-      <div className="h-4/5 w-4/5 overflow-auto">
-        <div className="flex flex-row h-full gap-1 sm:w-full sm:gap-4">
+      <div className="h-5/6 w-4/5">
+        <div className="flex flex-row h-full gap-1 sm:gap-2">
           <div className="h-full flex-1 flex flex-col gap-1 sm:gap-2 box-border">
             <Input
               onChange={(e) => setSearch(e.target.value)}
               placeholder={`Try "Queen's Gambit" or "1.e4 e5"`}
             />
-            <div className="overflow-y-auto h-full border-2 rounded-base bg-white">
+            <div className="overflow-x-auto h-full border-2 rounded-base bg-white">
               {data?.data &&
                 data.data.map((opening: OpeningResponse) => (
                   <OpeningCard key={opening.opening} opening={opening} />
                 ))}
             </div>
-            <div className="flex gap-0 sm:gap-2">
+            <div className="flex gap-1 ">
               <Button
                 variant="neo"
                 disabled={data?.data?.length === 0 || data === undefined}
@@ -68,9 +68,11 @@ export default function OpeningFilters({
                 variant="neo"
                 onClick={() => setSelPgns([])}
                 disabled={selPgns.length == 0}
-                className="bg-white"
+                className="bg-white "
               >
-                Clear Selected {selPgns.length !== 0 && `(${selPgns.length})`}
+                <text className="sm:hidden">Clear</text>
+                <text className="hidden sm:block">Clear Selected</text>
+                {selPgns.length !== 0 && `(${selPgns.length})`}
               </Button>
             </div>
           </div>

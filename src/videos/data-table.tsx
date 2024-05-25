@@ -33,7 +33,6 @@ export function DataTable<TData, TValue>({
     columns,
     getCoreRowModel: getCoreRowModel(),
     state: {
-      
       columnVisibility: {
         creator: true,
         color: width > 640,
@@ -79,7 +78,6 @@ export function DataTable<TData, TValue>({
 
                   const classN =
                     (color == "white" ? "bg-white" : "bg-bg") + " sm:bg-bg";
-                  console.log(classN);
                   return (
                     <TableCell key={cell.id} className={classN}>
                       {flexRender(

@@ -58,7 +58,6 @@ export const getVideos = async (
     andFilters.push(["in", "opening_pgn", filters.openings]);
   }
 
-  console.log(filters.sortBy);
   if (filters.sortBy) {
     andFilters.push([
       "order",
