@@ -26,7 +26,7 @@ export const columns: ColumnDef<ChessGame>[] = [
       };
 
       return (
-        <Button variant="header" onClick={handleClick}>
+        <Button variant="header" onClick={handleClick} className="p-0">
           Elo
           <svg
             width="1.4rem"

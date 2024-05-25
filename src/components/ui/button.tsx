@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        header: "font-bold",
+        header: "font-bold p-0",
         nav: "flex cursor-pointer items-center bg-white px-4 py-2 text-sm font-base ",
         neoSimple:
           "flex cursor-pointer items-center rounded-base border-2 border-black bg-main px-4 py-2 text-sm font-base transition-all hover:shadow-none",
