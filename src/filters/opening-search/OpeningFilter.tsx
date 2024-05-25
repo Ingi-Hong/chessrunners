@@ -72,7 +72,7 @@ export default function OpeningFilters({
               </Button>
             </div>
           </div>
-          <div className="flex-1 flex items-start justify-start content-start flex-wrap overflow-y-auto overflow-x-hidden gap-1 bg-white border-2 p-1 rounded-base">
+          <div className="flex-1 items-start justify-start content-start flex-wrap overflow-y-auto overflow-x-hidden gap-1 bg-white border-2 p-1 rounded-base hidden sm:flex">
             {(!selPgns || selPgns.length == 0) && (
               <p className="place-self-center">No openings selected.</p>
             )}
