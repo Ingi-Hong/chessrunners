@@ -6,20 +6,22 @@ import { useState } from "react";
 export default function EloSlider() {
   const setMinElo = useFilterStore((state) => state.setMinElo);
   const setMaxElo = useFilterStore((state) => state.setMaxElo);
+  const rawMin = useFilterStore((state) => state.rawMin);
+  const setRawMin = useFilterStore((state) => state.setRawMin);
+  const rawMax = useFilterStore((state) => state.rawMax);
+  const setRawMax = useFilterStore((state) => state.setRawMax);
+  const minElo = useFilterStore((state) => state.minElo);
+  const maxElo = useFilterStore((state) => state.maxElo);
+  const [max, setMax] = useState(rawMax || maxElo);
+  const [min, setMin] = useState(rawMin || minElo);
   const [valid, setValid] = useState(true);
-
-  const [rawMin, setRawMin] = useState<undefined | Number | null | string>(
-    null
-  );
-  const [rawMax, setRawMax] = useState<undefined | Number | null | string>(
-    null
-  );
 
   const handleEloChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const id = e.target.id;
     const value = e.target.value;
     if (id == "min") {
-      setRawMin(value);
+      setRawMin(parseInt(value));
+      setMin(parseInt(value));
       if (!rawMax || parseInt(value) <= (rawMax as number)) {
         setValid(true);
       } else {
@@ -29,7 +31,8 @@ export default function EloSlider() {
     }
 
     //max
-    setRawMax(value);
+    setRawMax(parseInt(value));
+    setMax(parseInt(value));
     if (!rawMin || parseInt(value) >= (rawMin as number)) {
       setValid(true);
     } else {
@@ -43,11 +46,13 @@ export default function EloSlider() {
     setValid(false);
   };
 
+  console.log("raw", rawMin, minElo);
+
   return (
     <div className="grid grid-cols-2 grid-rows-3 place-items-start items-center gap-2 box-border">
       <label htmlFor="min">Min</label>
       <Input
-        value={rawMin as number}
+        value={min as number}
         onChange={(e) => handleEloChange(e)}
         id="min"
         className="w-[5rem]"
@@ -56,7 +61,7 @@ export default function EloSlider() {
       <label htmlFor="max">Max</label>
       <Input
         type="number"
-        value={rawMax as number}
+        value={max as number}
         onChange={(e) => handleEloChange(e)}
         id="max"
         className="w-[5rem]"

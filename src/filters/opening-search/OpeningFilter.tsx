@@ -15,6 +15,7 @@ export default function OpeningFilters({
   setExpand: Dispatch<SetStateAction<boolean>>;
 }) {
   const [search, setSearch] = useState("");
+  //TODO refactor to map instead of array
   const selPgns = useFilterStore((state) => state.selPgns);
   const setSelPgns = useFilterStore((state) => state.setSelPgns);
 

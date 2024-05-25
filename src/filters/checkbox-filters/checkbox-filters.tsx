@@ -22,11 +22,17 @@ export function CreatorOptions({ className }: OptionProps) {
 
   return (
     <div className={className}>
-      <Option value="Eric Rosen" label="Eric Rosen" handleClick={handleClick} />
+      <Option
+        value="Eric Rosen"
+        label="Eric Rosen"
+        handleClick={handleClick}
+        checked={selectedCreators.includes("Eric Rosen")}
+      />
       <Option
         value="Daniel Naroditsky"
         label="Daniel Naroditsky"
         handleClick={handleClick}
+        checked={selectedCreators.includes("Daniel Naroditsky")}
       />
     </div>
   );
@@ -37,7 +43,7 @@ export function ColorOptions({ className }: OptionProps) {
   const selectedColors = useFilterStore((state) => state.selColor);
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const color = (e.target as HTMLButtonElement).value as "Black" | "White";
+    const color = (e.target as HTMLButtonElement).value as "black" | "white";
     if (selectedColors.includes(color)) {
       setColors(selectedColors.filter((val) => val !== color));
     } else {
@@ -45,10 +51,22 @@ export function ColorOptions({ className }: OptionProps) {
     }
   };
 
+  console.log("selcolor", selectedColors);
+
   return (
     <div className={className}>
-      <Option value="white" label="White" handleClick={handleClick} />
-      <Option value="black" label="Black" handleClick={handleClick} />
+      <Option
+        checked={selectedColors.includes("white")}
+        value="white"
+        label="White"
+        handleClick={handleClick}
+      />
+      <Option
+        checked={selectedColors.includes("black")}
+        value="black"
+        label="Black"
+        handleClick={handleClick}
+      />
     </div>
   );
 }
@@ -82,6 +100,7 @@ export function TimeOptions({ className }: OptionProps) {
               value={timeControl}
               label={timeControl}
               handleClick={handleClick}
+              checked={selTimes.includes(timeControl)}
             />
           );
         })}
