@@ -10,7 +10,6 @@ import OpeningCard from "./OpeningCard";
 export default function OpeningFilters({
   expand,
   setExpand,
-  small,
 }: {
   expand: boolean;
   setExpand: Dispatch<SetStateAction<boolean>>;
