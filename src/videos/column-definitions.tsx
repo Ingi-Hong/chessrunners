@@ -7,6 +7,14 @@ export const columns: ColumnDef<ChessGame>[] = [
   {
     accessorKey: "creator",
     header: "Creator",
+    cell: ({ row }) => {
+      const creator = row.original.creator;
+      return (
+        <p className="whitespace-nowrap overflow-hidden w-12 text-ellipsis sm:whitespace-normal sm:w-full">
+          {creator}
+        </p>
+      );
+    },
   },
   {
     accessorKey: "color",
@@ -53,6 +61,13 @@ export const columns: ColumnDef<ChessGame>[] = [
   {
     accessorKey: "opening_pgn",
     header: "Opening PGN",
+    cell: ({ row }) => {
+      return (
+        <p className="w-16 overflow-hidden whitespace-nowrap text-ellipsis sm:whitespace-normal sm:w-full">
+          {row.original.opening_pgn}
+        </p>
+      );
+    },
   },
   {
     id: "watch",

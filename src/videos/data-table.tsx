@@ -15,6 +15,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useWindowSize } from "./windowsize";
+import { ChessGame } from "@/database/queries";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -32,12 +33,14 @@ export function DataTable<TData, TValue>({
     columns,
     getCoreRowModel: getCoreRowModel(),
     state: {
+      
       columnVisibility: {
         creator: true,
-        color: true,
+        color: width > 640,
         elo: true,
         time_control: true,
-        opening_pgn: width > 800,
+        // opening_pgn: width > 800,
+        opening_pgn: true,
         watch: true,
       },
     },
@@ -71,11 +74,21 @@ export function DataTable<TData, TValue>({
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
               >
-                {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                ))}
+                {row.getVisibleCells().map((cell) => {
+                  const color = (row.original as ChessGame).color as string;
+
+                  const classN =
+                    (color == "white" ? "bg-white" : "bg-bg") + " sm:bg-bg";
+                  console.log(classN);
+                  return (
+                    <TableCell key={cell.id} className={classN}>
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
+                    </TableCell>
+                  );
+                })}
               </TableRow>
             ))
           ) : (
