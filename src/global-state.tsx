@@ -17,6 +17,10 @@ export type FilterStore = {
   setSelTimes: (selTimes: string[]) => void;
   selPgns: string[];
   setSelPgns: (selPgns: string[]) => void;
+  sortBy: string | undefined;
+  setSortBy: (sortBy: string | undefined) => void;
+  isDesc: boolean;
+  setIsDesc: (isDesc: boolean) => void;
 };
 
 export const useFilterStore = create<FilterStore>((set) => ({
@@ -37,6 +41,19 @@ export const useFilterStore = create<FilterStore>((set) => ({
   setSelTimes: (selTimes) => set({ selTimes }),
   selPgns: [],
   setSelPgns: (selPgns) => set({ selPgns }),
+  sortBy: "elo",
+  setSortBy: (sortBy: string | undefined) => {
+    const og = useFilterStore.getState().sortBy;
+    const ogIsDesc = useFilterStore.getState().isDesc;
+    if (og == sortBy) {
+      ogIsDesc ? set({ isDesc: false }) : set({ isDesc: true });
+      return;
+    }
+
+    set({ sortBy, isDesc: false });
+  },
+  isDesc: false,
+  setIsDesc: (isDesc) => set({ isDesc }),
 }));
 
 type OpeningSearchState = {

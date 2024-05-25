@@ -12,6 +12,8 @@ export type FilterParams = {
   eloRange: eloRange;
   timeControl: string[];
   openings: string[];
+  sortBy: string | undefined;
+  isDesc: boolean;
 };
 
 export type ChessGame = {
@@ -54,6 +56,17 @@ export const getVideos = async (
 
   if (filters.openings.length > 0) {
     andFilters.push(["in", "opening_pgn", filters.openings]);
+  }
+
+  console.log(filters.sortBy);
+  if (filters.sortBy) {
+    andFilters.push([
+      "order",
+      filters.sortBy,
+      {
+        ascending: !filters.isDesc,
+      },
+    ]);
   }
 
   return andFilters

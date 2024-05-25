@@ -11,6 +11,8 @@ export default function Videos() {
   const eloMax = useFilterStore((state) => state.maxElo);
   const timeControl = useFilterStore((state) => state.selTimes);
   const selPgns = useFilterStore((state) => state.selPgns);
+  const sortBy = useFilterStore((state) => state.sortBy);
+  const isDesc = useFilterStore((state) => state.isDesc);
 
   const filters: FilterParams = {
     colors,
@@ -18,6 +20,8 @@ export default function Videos() {
     eloRange: { min: eloMin as Number, max: eloMax as Number },
     timeControl,
     openings: selPgns,
+    sortBy,
+    isDesc,
   };
 
   const { data } = useQuery({

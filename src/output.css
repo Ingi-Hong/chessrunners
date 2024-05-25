@@ -1214,6 +1214,10 @@ body {
   font-family: DMSans;
 }
 
+.font-\[inherit\] {
+  font-family: inherit;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1244,6 +1248,10 @@ body {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-black {
+  font-weight: 900;
 }
 
 .leading-none {
