@@ -47,7 +47,7 @@ export const columns: ColumnDef<ChessGame>[] = [
       const url = row.original.url;
 
       return (
-        <Button variant="neo" asChild>
+        <Button variant="neoSimple" asChild>
           <a href={url} target="_blank">
             Watch
           </a>

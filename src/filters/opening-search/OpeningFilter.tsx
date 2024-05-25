@@ -28,8 +28,8 @@ export default function OpeningFilters({
     if (!data?.data) return;
     const pgns = data?.data?.map((opening) => opening.opening_pgns);
     const flatPgns = pgns?.flat();
-    console.log(flatPgns);
-    setSelPgns(flatPgns);
+    const currPgns = selPgns.filter((pgn) => !flatPgns.includes(pgn));
+    setSelPgns(currPgns.concat(flatPgns));
   };
 
   return (
@@ -41,7 +41,7 @@ export default function OpeningFilters({
               onChange={(e) => setSearch(e.target.value)}
               placeholder={`Try "Queen's Gambit" or "1.e4 e5"`}
             />
-            <div className="overflow-y-auto h-full border-2">
+            <div className="overflow-y-auto h-full border-2 rounded-base bg-white">
               {data?.data &&
                 data.data.map((opening: OpeningResponse) => (
                   <OpeningCard key={opening.opening} opening={opening} />
@@ -52,10 +52,15 @@ export default function OpeningFilters({
                 variant="neo"
                 disabled={data?.data?.length === 0 || data === undefined}
                 onClick={selectAll}
+                className="bg-white"
               >
                 Select All{" "}
                 {data?.data?.length == undefined ||
-                  (data?.data?.length !== 0 && `(${data?.data?.length})`)}
+                  (data?.data?.length !== 0 &&
+                    `(${data?.data?.reduce(
+                      (curr, opening) => opening.opening_pgns.length + curr,
+                      0
+                    )})`)}
               </Button>
               <Button
                 variant="neo"
@@ -67,7 +72,10 @@ export default function OpeningFilters({
               </Button>
             </div>
           </div>
-          <div className="flex-1 flex items-start justify-start content-start flex-wrap overflow-y-auto overflow-x-hidden gap-1">
+          <div className="flex-1 flex items-start justify-start content-start flex-wrap overflow-y-auto overflow-x-hidden gap-1 bg-white border-2 p-1 rounded-base">
+            {(!selPgns || selPgns.length == 0) && (
+              <p className="place-self-center">No openings selected.</p>
+            )}
             {selPgns.map((pgn) => (
               <Badge
                 text={pgn}

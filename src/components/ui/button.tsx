@@ -9,6 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
+        neoSimple:
+          "flex cursor-pointer items-center rounded-base border-2 border-black bg-main px-4 py-2 text-sm font-base transition-all hover:shadow-none",
         neo: "flex cursor-pointer items-center rounded-base border-2 border-black bg-main px-4 py-2 text-sm font-base shadow-base transition-all hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none",
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive:

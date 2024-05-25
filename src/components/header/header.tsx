@@ -5,6 +5,14 @@ export default function Header() {
     <div className="flex w-full border-b-4 border-black h-24 font-title">
       <div className="container flex items-center justify-between">
         <h1 className="text-4xl font-bold">CHESSTUBE</h1>
+        {/* <Marquee
+          items={[
+            "Oh no my queen!",
+            "Will the real Sam Shanklin please stand up?",
+            "Niemann butt investigation proves messy yet inconclusive",
+            "Ask yourself: What does your opponent want to do?",
+          ]}
+        /> */}
         <nav>
           <ul className="flex gap-4">
             <li>
