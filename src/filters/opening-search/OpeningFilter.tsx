@@ -10,9 +10,11 @@ import OpeningCard from "./OpeningCard";
 export default function OpeningFilters({
   expand,
   setExpand,
+  small,
 }: {
   expand: boolean;
   setExpand: Dispatch<SetStateAction<boolean>>;
+  small?: boolean;
 }) {
   const [search, setSearch] = useState("");
   //TODO refactor to map instead of array
@@ -35,9 +37,9 @@ export default function OpeningFilters({
 
   return (
     <Modal active={expand} setActive={setExpand}>
-      <div className="h-4/5 w-4/5">
-        <div className="flex flex-row h-full gap-4">
-          <div className="h-full flex-1 flex flex-col gap-2 box-border">
+      <div className="h-4/5 w-4/5 overflow-auto">
+        <div className="flex flex-row h-full gap-1 sm:w-full sm:gap-4">
+          <div className="h-full flex-1 flex flex-col gap-1 sm:gap-2 box-border">
             <Input
               onChange={(e) => setSearch(e.target.value)}
               placeholder={`Try "Queen's Gambit" or "1.e4 e5"`}
@@ -48,7 +50,7 @@ export default function OpeningFilters({
                   <OpeningCard key={opening.opening} opening={opening} />
                 ))}
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-0 sm:gap-2">
               <Button
                 variant="neo"
                 disabled={data?.data?.length === 0 || data === undefined}

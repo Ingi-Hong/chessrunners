@@ -1591,6 +1591,14 @@ body {
     justify-content: space-between;
   }
 
+  .sm\:gap-4 {
+    gap: 1rem;
+  }
+
+  .sm\:gap-2 {
+    gap: 0.5rem;
+  }
+
   .sm\:whitespace-normal {
     white-space: normal;
   }

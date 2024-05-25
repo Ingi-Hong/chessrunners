@@ -44,7 +44,7 @@ export default function Filters({ small }: { small?: boolean }) {
         <Button variant="neo" onClick={() => setIsOpen(true)}>
           Opening Explorer ({selPgns.length})
         </Button>
-        <OpeningFilters setExpand={setIsOpen} expand={isOpen} />
+        <OpeningFilters small={small} setExpand={setIsOpen} expand={isOpen} />
       </div>
     </div>
   );
