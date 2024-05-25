@@ -8,7 +8,7 @@ export type eloRange = {
 
 export type FilterParams = {
   creators: string[];
-  colors: Array<"Black" | "White">;
+  colors: Array<"black" | "white">;
   eloRange: eloRange;
   timeControl: string[];
   openings: string[];

@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useFilterStore, useOpeningSearch } from "@/global-state";
 import { Dispatch, SetStateAction } from "react";
-import { useState } from "react";
 import {
   ColorOptions,
   CreatorOptions,
@@ -15,12 +14,6 @@ export default function Filters({ small }: { small?: boolean }) {
   const setIsOpen = useOpeningSearch((state) => state.setIsOpen) as Dispatch<
     SetStateAction<boolean>
   >;
-  const [rawMin, setRawMin] = useState<undefined | Number | null | string>(
-    null
-  );
-  const [rawMax, setRawMax] = useState<undefined | Number | null | string>(
-    null
-  );
 
   let defClass =
     "flex-col justify-between h-[calc(100%-44.44px)] sm:h-[calc(100%-96px)] border-black border-r-4 w-54 p-4 border-box hidden md:flex font-public";
@@ -40,12 +33,7 @@ export default function Filters({ small }: { small?: boolean }) {
       </div>
       <div className="flex flex-col gap-2 items-start">
         <label className="text-xl">Elo</label>
-        <EloSlider
-          setRawMax={setRawMax}
-          setRawMin={setRawMin}
-          rawMin={rawMin}
-          rawMax={rawMax}
-        />
+        <EloSlider />
       </div>
       <div className="flex flex-col gap-2 items-start">
         <label className="text-xl">Time Standard</label>
