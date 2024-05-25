@@ -1,11 +1,11 @@
 "use client";
-
 import {
   ColumnDef,
   flexRender,
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
+import { useState } from "react";
 
 import {
   Table,
@@ -15,6 +15,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useWindowSize } from "./windowsize";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -25,10 +26,22 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const [width, _] = useWindowSize();
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    state: {
+      columnVisibility: {
+        creator: true,
+        color: true,
+        elo: true,
+        time_control: true,
+        opening_pgn: width > 800,
+        watch: true,
+      },
+    },
   });
 
   return (

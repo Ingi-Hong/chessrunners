@@ -927,6 +927,10 @@ body {
           user-select: none;
 }
 
+.resize {
+  resize: both;
+}
+
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -1519,6 +1523,14 @@ body {
 @media (min-width: 768px) {
   .md\:flex {
     display: flex;
+  }
+
+  .md\:grid {
+    display: grid;
+  }
+
+  .md\:grid-cols-\[auto_1fr\] {
+    grid-template-columns: auto 1fr;
   }
 }
 
