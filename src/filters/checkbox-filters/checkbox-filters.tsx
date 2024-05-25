@@ -51,8 +51,6 @@ export function ColorOptions({ className }: OptionProps) {
     }
   };
 
-  console.log("selcolor", selectedColors);
-
   return (
     <div className={className}>
       <Option

@@ -4,7 +4,9 @@ import Videos from "./videos/videos";
 import Header from "./components/header/header";
 
 const client = new QueryClient();
-
+/*
+ * STATE IS HORRIBLY UGLY IF BECOMES ISSUE WILL BE HEADACHE TO FIX ONE DAY.
+ */
 function App() {
   return (
     <QueryClientProvider client={client}>

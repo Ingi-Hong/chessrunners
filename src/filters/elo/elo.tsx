@@ -46,8 +46,6 @@ export default function EloSlider() {
     setValid(false);
   };
 
-  console.log("raw", rawMin, minElo);
-
   return (
     <div className="grid grid-cols-2 grid-rows-3 place-items-start items-center gap-2 box-border">
       <label htmlFor="min">Min</label>
