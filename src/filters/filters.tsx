@@ -15,7 +15,7 @@ export default function Filters() {
     SetStateAction<boolean>
   >;
   return (
-    <div className="flex-col justify-between h-[calc(100%-96px)] border-black border-r-4 w-54 p-4 border-box hidden md:flex font-public">
+    <div className="flex-col justify-between h-[calc(100%-44.44px)] sm:h-[calc(100%-96px)] border-black border-r-4 w-54 p-4 border-box hidden md:flex font-public">
       <div className="flex flex-col gap-2 items-start">
         <label className="text-xl">Creators</label>
         <CreatorOptions className="flex flex-col gap-2" />

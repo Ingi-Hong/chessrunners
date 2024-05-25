@@ -802,6 +802,10 @@ body {
   height: 2rem;
 }
 
+.h-\[calc\(100\%-44\.44px\)\] {
+  height: calc(100% - 44.44px);
+}
+
 .w-10 {
   width: 2.5rem;
 }
@@ -1525,8 +1529,21 @@ body {
     display: block;
   }
 
+  .sm\:h-24 {
+    height: 6rem;
+  }
+
+  .sm\:h-\[calc\(100\%-96px\)\] {
+    height: calc(100% - 96px);
+  }
+
   .sm\:justify-between {
     justify-content: space-between;
+  }
+
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 

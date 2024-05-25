@@ -26,7 +26,7 @@ export default function Videos() {
   });
 
   return (
-    <div className="mx-auto box-border overflow-auto h-[calc(100%-96px)] w-full bg-bg">
+    <div className="mx-auto box-border overflow-auto h-[calc(100%-44.44px)] sm:h-[calc(100%-96px)] w-full bg-bg">
       <DataTable columns={columns} data={data?.data || []} />
     </div>
   );

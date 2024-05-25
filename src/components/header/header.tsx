@@ -2,9 +2,9 @@ import Tooltip from "../tooltip";
 
 export default function Header() {
   return (
-    <div className="flex w-full border-b-4 border-black h-24 font-title">
+    <div className="flex w-full border-b-4 border-black h-12 sm:h-24 font-title">
       <div className="container flex items-center justify-center sm:justify-between">
-        <h1 className="text-4xl font-bold">CHESSTUBE</h1>
+        <h1 className="text-xl sm:text-4xl font-bold">CHESSTUBE</h1>
         {/* <Marquee
           items={[
             "Oh no my queen!",
