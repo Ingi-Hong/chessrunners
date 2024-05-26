@@ -57,7 +57,9 @@ export default function Header() {
               />
             </li>
             <li>
-              <a>Donate</a>
+              <a href="https://docs.google.com/document/d/1ZVGJRn0l6gz41UqLkKZlvcgSXKTbeP4nXRVE9ezXeJE/edit?usp=sharing">
+                Credits
+              </a>
             </li>
             <li>
               <a href="https://github.com/Ingi-Hong/chesstube.app">Github</a>
