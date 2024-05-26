@@ -53,7 +53,7 @@ export default function Header() {
             <li>
               <Tooltip
                 elementToHover={<a>Contribute</a>}
-                tooltip="Coming soon..."
+                tooltip="Coming soon... For now just create an issue on github."
               />
             </li>
             <li>
