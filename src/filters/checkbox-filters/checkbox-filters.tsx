@@ -2,6 +2,7 @@ import Option from "@/components/option";
 import { getTimeControls } from "@/database/queries";
 import { useFilterStore } from "@/global-state";
 import { useQuery } from "@tanstack/react-query";
+import { useMemo } from "react";
 
 type OptionProps = {
   className?: string;
@@ -81,27 +82,62 @@ export function TimeOptions({ className }: OptionProps) {
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     const time = (e.target as HTMLButtonElement).value as string;
+    const childrenString = (e.target as HTMLButtonElement).dataset.children;
+    let children: string[] = [];
+    if (childrenString) {
+      children = JSON.parse(childrenString) as string[];
+    }
     if (selTimes.includes(time)) {
-      setSelTimes(selTimes.filter((val) => val !== time));
+      let filtered = selTimes.filter((val) => val !== time);
+      children.forEach(
+        (child: string) => (filtered = filtered.filter((val) => val !== child))
+      );
+      setSelTimes(filtered);
     } else {
-      setSelTimes([...selTimes, time]);
+      setSelTimes([...selTimes, ...children, time]);
     }
   };
 
+  const opts = useMemo(() => {
+    const opt = data?.data?.reduce((curr, val) => {
+      const timeControl = val.time_control;
+      if (curr.get(timeControl)) {
+        return curr;
+      }
+      if (!timeControl.includes("+")) {
+        curr.set(timeControl, []);
+        return curr;
+      }
+      const timeArray = timeControl.split("+");
+      const oldChildren = curr.get(timeArray[0]) as string[];
+      if (!oldChildren) {
+        curr.set(timeArray[0], [timeControl]);
+      } else {
+        curr.set(timeArray[0], [...oldChildren, timeControl]);
+      }
+      return curr;
+    }, new Map<string, string[]>());
+    return opt;
+  }, [data?.data]);
+
   return (
     <div className={className}>
-      {data?.data &&
-        data.data.map((option) => {
-          const timeControl = option.time_control;
-          return (
-            <Option
-              value={timeControl}
-              label={timeControl}
-              handleClick={handleClick}
-              checked={selTimes.includes(timeControl)}
-            />
-          );
-        })}
+      {opts &&
+        opts?.size > 0 &&
+        Array.from(opts.keys())
+          .sort((a, b) => parseInt(a) - parseInt(b))
+          .map((parent) => {
+            const children = opts.get(parent);
+            return (
+              <Option
+                value={parent}
+                label={parent}
+                handleClick={handleClick}
+                checked={selTimes.includes(parent)}
+                children={children}
+              />
+            );
+          })}
     </div>
   );
 }
