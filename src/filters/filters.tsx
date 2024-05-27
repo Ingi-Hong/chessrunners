@@ -16,7 +16,7 @@ export default function Filters({ small }: { small?: boolean }) {
   >;
 
   let defClass =
-    "flex-col justify-between h-[calc(100%-44.44px)] sm:h-[calc(100%-96px)] border-black border-r-4 w-54 p-4 border-box hidden md:flex font-public";
+    "flex-col justify-between h-[calc(100%-44.44px)] sm:h-[calc(100%-96px)] border-black border-r-4 p-4 border-box hidden md:flex font-public";
   if (small) {
     defClass = "flex-col justify-between h-full flex font-public p-4";
   }
@@ -25,11 +25,11 @@ export default function Filters({ small }: { small?: boolean }) {
     <div className={defClass}>
       <div className="flex flex-col gap-2 items-start">
         <label className="text-xl">Creators</label>
-        <CreatorOptions className="flex flex-col gap-2" />
+        <CreatorOptions className="flex gap-x-4 gap-y-1 flex-wrap" />
       </div>
       <div className="flex flex-col gap-2 items-start">
         <label className="text-xl">Plays As</label>
-        <ColorOptions className="flex flex-col gap-2" />
+        <ColorOptions className="flex gap-x-4 gap-y-1 flex-wrap" />
       </div>
       <div className="flex flex-col gap-2 items-start">
         <label className="text-xl">Elo</label>
@@ -37,7 +37,7 @@ export default function Filters({ small }: { small?: boolean }) {
       </div>
       <div className="flex flex-col gap-2 items-start">
         <label className="text-xl">Time Standard</label>
-        <TimeOptions className="flex flex-col gap-2" />
+        <TimeOptions className="flex flex-wrap gap-x-4 gap-y-1" />
       </div>
       <div className="flex flex-col gap-2 items-start">
         <label className="text-xl">Openings</label>

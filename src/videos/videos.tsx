@@ -3,6 +3,7 @@ import { useFilterStore } from "@/global-state";
 import { useQuery } from "@tanstack/react-query";
 import { columns } from "./column-definitions";
 import { DataTable } from "./data-table";
+import { ColorOptions } from "@/filters/checkbox-filters/checkbox-filters";
 
 export default function Videos() {
   const colors = useFilterStore((state) => state.selColor);

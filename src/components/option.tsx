@@ -16,7 +16,7 @@ export default function Option({
   children,
 }: Option) {
   return (
-    <div className="flex gap-x-1 items-center box-border">
+    <div className="flex items-center box-border">
       <Checkbox
         className="-translate-y-[1px]"
         id={value}

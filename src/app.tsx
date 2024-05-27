@@ -12,7 +12,7 @@ function App() {
     <QueryClientProvider client={client}>
       <div className="h-svh overflow-hidden grid-rows-2-[auto_1fr] grid">
         <Header />
-        <div className="md:grid md:grid-cols-[auto_1fr] h-svh w-svw overflow-hidden">
+        <div className="md:grid grid-cols-[200px_1fr] h-svh w-svw overflow-hidden">
           <Filters />
           <Videos />
         </div>
