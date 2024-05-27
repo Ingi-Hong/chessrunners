@@ -10,7 +10,7 @@ export const columns: ColumnDef<ChessGame>[] = [
     cell: ({ row }) => {
       const creator = row.original.creator;
       return (
-        <p className="whitespace-nowrap overflow-hidden w-12 text-ellipsis sm:w-full">
+        <p className="whitespace-normal sm:whitespace-nowrap overflow-hidden w-12 text-ellipsis sm:w-full">
           {creator}
         </p>
       );
